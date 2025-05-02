@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pannellum Viewer with Hotspots</title>
+    <link rel="stylesheet" href="pannellum/pannellum.css">
+	<script src="pannellum/pannellum.js"></script>
+</head>
+<body>
+    <h1>Pannellum (Panorama Viewer with Hotspots)</h1>
+    <div id="panorama" style="width:100%; height:500px;"></div>
+
+   
+    <script>
+        const viewer = pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "scene1",
+                "sceneFadeDuration": 1000
+            },
+            "scenes": {
+                "scene1": {
+                    "type": "equirectangular",
+                    "panorama": "https://pannellum.org/images/alma.jpg",
+                    "autoLoad": true,
+                    "hotSpots": [
+                        {
+                            "pitch": 4,
+                            "yaw": 240,
+                            "type": "scene",
+                            "text": "Go to Scene 2",
+                            "sceneId": "scene2"
+                        }
+                    ]
+                },
+                "scene2": {
+                    "type": "equirectangular",
+                    "panorama": "https://pannellum.org/images/bma-1.jpg",
+                    "autoLoad": true,
+                    "hotSpots": [
+                        {
+                            "pitch": 2,
+                            "yaw": 220,
+                            "type": "scene",
+                            "text": "Back to Scene 1",
+                            "sceneId": "scene1"
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+
